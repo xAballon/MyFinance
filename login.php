@@ -10,6 +10,7 @@
 <?php
 require_once('dbConnection.php');
 
+//Prüfung ob E-Mail bereits regristriert ist
 if(isset($_POST['submit']) && !empty($_POST['email'])){
 
     $email = htmlspecialchars(trim($_POST['email']));
@@ -21,20 +22,20 @@ if(isset($_POST['submit']) && !empty($_POST['email'])){
     $row = $stmt->fetchColumn();
     //Anmeldeformular
     if($row > 0){
-        echo "//Nutzer existiert bereits";
+        //echo "//Nutzer existiert bereits";
 ?>
         <body>
     <h2>Wilkommen Bei MyFinance</h2>
-    
+    <p>Nutzer mit dieser E-Mail gefunden.<br>Anmelden:</p>
 
-    <form action="<?php echo $_SERVER['SCRIPT_NAME'] ?>" method="post" class="login">
+    <form action="verify.php" method="post" class="login">
     <table>
     <tr>
         <td>
             <label for="email">Email: </label>
         </td>
         <td>
-        <input type="email" name="email" value='<?php echo $email; ?>'>
+        <input type="email" name="email"  required>
         </td>
     </tr>
     <tr>
@@ -42,7 +43,7 @@ if(isset($_POST['submit']) && !empty($_POST['email'])){
             <label for="pass">Passwort: </label>
         </td>
         <td>
-        <input type="password" name="pass">
+        <input type="password" name="pass" required>
         </td>
     </tr>    
 
@@ -56,20 +57,21 @@ if(isset($_POST['submit']) && !empty($_POST['email'])){
 <?php
     //Regristrierformular
     }else{
-        echo "//Nutzer existiert noch nicht";
+       // echo "//Nutzer existiert noch nicht";
     ?>
 <body>
-    <h2>Wilkommen Bei MyFinance</h2>
+    <h2>Willkommen bei MyFinance</h2>
+    <p>Ihre E-Mail wurde noch nicht regristriert.<br>Einen Neuen Benutzer anlegen:</p>
     
 
-    <form action="<?php echo $_SERVER['SCRIPT_NAME'] ?>" method="post" class="login">
+    <form action="register.php" method="post" class="login">
     <table>
     <tr>
         <td>
-            <label for="email">Email: </label>
+            <label for="email">E-Mail: </label>
         </td>
         <td>
-        <input type="email" name="email" value="<?php echo $email ?>">
+        <input type="email" name="email" value="<?php echo $email ?>" required>
         </td>
     </tr>
     <tr>
@@ -77,7 +79,7 @@ if(isset($_POST['submit']) && !empty($_POST['email'])){
             <label for="vorname">Vorname: </label>
         </td>
         <td>
-        <input type="text" name="vName">
+        <input type="text" name="vName" required>
         </td>
     </tr>
     <tr>
@@ -85,7 +87,7 @@ if(isset($_POST['submit']) && !empty($_POST['email'])){
             <label for="nachname">Nachname: </label>
         </td>
         <td>
-        <input type="text" name="nName">
+        <input type="text" name="nName" required>
         </td>
     </tr>
     <tr>
@@ -93,26 +95,25 @@ if(isset($_POST['submit']) && !empty($_POST['email'])){
             <label for="pass">Passwort: </label>
         </td>
         <td>
-        <input type="pass" name="email" value="<?php echo $email ?>">
+        <input type="password" name="pass" min="8" max="64" required>
         </td>
     </tr>
     <tr>
         <td>
-            <label for="email">Email: </label>
+            <label for="pass">Passwort wiederholen: </label>
         </td>
         <td>
-        <input type="email" name="email" value="<?php echo $email ?>">
+        <input type="password" name="conPass" min="8" max="64" required>
         </td>
     </tr>
     </table>
         <input type="submit" name="submit">
     </form>
     
+    <a href=""></a>
 </body>
 </html>
 
-    
-    
     
    <?php 
     }
@@ -121,10 +122,11 @@ if(isset($_POST['submit']) && !empty($_POST['email'])){
 
 }else{
 
+    //E-Mail eingabe
 ?>
-
 <body>
     <h2>Wilkommen Bei MyFinance</h2>
+    <p>Geben Sie hier Ihre E-Mail ein. Sollten sie bereits einen Account haben, können Sie sich direkt anmelden. Anderenfalls können Sie einen Neuen Benutzer anlegen.</p>
     
 
     <form action="<?php echo $_SERVER['SCRIPT_NAME'] ?>" method="post" class="login">
@@ -134,7 +136,7 @@ if(isset($_POST['submit']) && !empty($_POST['email'])){
             <label for="email">Email: </label>
         </td>
         <td>
-        <input type="email" name="email">
+        <input type="email" name="email" required>
         </td>
     </tr>
     </table>
