@@ -2,87 +2,122 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 body{
     font-family: 'Roboto', sans-serif;
-
+    overflow-x: hidden;
 }
 
 /*Header styles*/
-.global-bg {
-    background-color: #f3f4f6;
+.header {
     margin: 0;
-    font-family: Arial, sans-serif;
+    background-color: #1763B2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 50px;
+    border-bottom: 2px solid #000000;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+    height: 90px;
+}
+.spacer {
+    height: 90px;
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+.logo-text {
+    font-size: 30px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+.logo img {
+    width: 70px;
+    height: auto;
+    margin-right: 30px;
+}
+.nav-links {
+    display: flex;
+    gap: 40px;
+    flex-grow: 2;
+    justify-content: center;
+}
+.nav-links a {
+    text-decoration: none;
+    color: #FFFFFF;
+    padding: 10px 15px;
+    border: 2px solid #FFFFFF;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 18px;
+}
+.nav-links a:hover {
+    background-color: #1BA3BD;
+    color: #000000;
+}
+.profile-icon {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 24px;
+    flex-shrink: 0;
+    background: #1ba2bd3b;
+}
+.profile-icon:hover{
+    background: #1BA3BD;
 }
 
-.myfinance-header {
-    background-color: #047857;
-    color: white;
-    padding: 16px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-bottom-left-radius: 16px;
-    border-bottom-right-radius: 16px;
+/*Footer Styles*/
+.footer {
+    margin-left: -8px;
+    background-color: #000000;
+    color: #FFFFFF;
+    padding: 20px;
+    text-align: center;
+    border-top: 2px solid #FFFFFF;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
-
-.myfinance-container {
+.footer-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
 }
-
-.myfinance-logo-container {
+.footer-logo img {
+    width: 50px;
+    height: auto;
+    margin-right: 50px;
+    margin-top: 10px;
+}
+.footer-links {
     display: flex;
-    align-items: center;
-    gap: 12px;
+    gap: 40px;
 }
-
-.myfinance-logo {
-    width: 48px;
-    height: 48px;
-    background-color: black;
-    color: #10b981;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 1.25rem;
-    border-radius: 50%;
-}
-
-.myfinance-site-name {
-    font-size: 1.75rem;
-    font-weight: bold;
-}
-
-.myfinance-nav-links {
-    list-style: none;
-    display: flex;
-    gap: 24px;
-}
-
-.myfinance-nav-links li a {
-    color: white;
+.footer-links a {
     text-decoration: none;
-    transition: color 0.3s;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 16px;
 }
-
-.myfinance-nav-links li a:hover {
-    color: black;
+.footer-links a:hover {
+    color: #24D1C2;
 }
-
-
-/*Footer Styles*/
-footer {
-    position: relative;
-    width: 100%;
-    bottom: 0;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
-    color: black;
-}
-
-/*Login Styles*/
-.login{
-    text-align:center;
+.footer-text {
+    margin-top: 10px;
+    font-size: 15px;
 }
 
