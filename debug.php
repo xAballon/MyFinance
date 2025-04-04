@@ -36,12 +36,6 @@ if(isset($_POST['submit']) && !empty($_POST['name'])){
 </html>
 
 
-
-
-
-
-
-
 <?php
 }
 ?>
