@@ -35,7 +35,7 @@ if(isset($_POST['submit']) && !empty($_POST['email'])){
             <label for="email">Email: </label>
         </td>
         <td>
-        <input type="email" name="email"  required>
+        <input type="email" name="email" value="<?= $email ?>" required>
         </td>
     </tr>
     <tr>
@@ -71,7 +71,7 @@ if(isset($_POST['submit']) && !empty($_POST['email'])){
             <label for="email">E-Mail: </label>
         </td>
         <td>
-        <input type="email" name="email" value="<?php echo $email ?>" required>
+        <input type="email" name="email" value="<?= $email ?>" required>
         </td>
     </tr>
     <tr>
