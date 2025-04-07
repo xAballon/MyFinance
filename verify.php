@@ -27,21 +27,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             //Benutzer mit gehashtem Passwort erneut abfragen
             $stmt = $pdo->prepare("SELECT uid, passwort FROM user WHERE email = :email");
-    $stmt->execute([':email' => $email]);
-    $user = $stmt->fetch();
+            $stmt->execute([':email' => $email]);
+            $user = $stmt->fetch();
         }
 
-        if(password_verify($pass, $user['passwort'])){
+        //Passwort verifizieren
+        if (password_verify($pass, $user['passwort'])) {
             $_SESSION['user_id'] = $user['uid'];
             header("Location: index.php");
-        }else {
-                echo "Ungültige Anmeldedaten.<br> <a href='login.php'>Zurück zum Login</a>";
-            }
-        
-
+        } else {
+            echo "Ungültige Anmeldedaten.<br> <a href='login.php'>Zurück zum Login</a>";
+        }
         $_SESSION['user_id'] = $user['uid'];
     } else {
         die("Fehler bei den Anmeldedaten ist Aufgetreten!<br><br><a href='login.php'>Zurück zum Login</a>");
     }
 }
-
