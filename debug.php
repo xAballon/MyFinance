@@ -1,5 +1,7 @@
-<?php
+<?php phpinfo(); ?>
 
+<?php
+/*
 require_once('dbConnection.php');
 
 if(isset($_POST['submit'])){
@@ -36,12 +38,8 @@ if(isset($_POST['submit']) && !empty($_POST['name'])){
 </html>
 
 
-
-
-
-
-
-
 <?php
 }
+?>
+*/
 ?>

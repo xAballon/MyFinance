@@ -5,7 +5,7 @@ try{
 
 
 }catch (PDOException $e){
-    echo "".$e->getMessage()."";
+    echo $e->getMessage();
     die ("<br>Ein Fehler bei der Datenbankverbindung ist aufgetreten :(");
 }
 ?>
