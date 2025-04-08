@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         //Passwort verifizieren
         if (password_verify($pass, $user['passwort'])) {
             $_SESSION['user_id'] = $user['uid'];
-            header("Location: index.php");
+            header("Location: ../index.php");
         } else {
             echo "Ungültige Anmeldedaten.<br> <a href='login.php'>Zurück zum Login</a>";
         }
