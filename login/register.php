@@ -6,7 +6,7 @@ $email = htmlspecialchars(trim($_POST['email']));
 $pass = htmlspecialchars(trim($_POST['pass']));
 $confirmPass = htmlspecialchars(trim($_POST['conPass']));
 
-require_once 'dbConnection.php';
+require_once('../Misc/dbConnection.php');
 
 //Formular auf Vollständigkeit überprüfen
 if (isset($_POST['submit']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
