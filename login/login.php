@@ -9,7 +9,7 @@
 </head>
 
 <?php
-require_once('dbConnection.php');
+require_once('../Misc/dbConnection.php');
 
 //Prüfung ob E-Mail bereits regristriert ist
 if (isset($_POST['submit']) && !empty($_POST['email'])) {

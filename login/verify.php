@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'dbConnection.php';
+require_once('../Misc/dbConnection.php');
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
