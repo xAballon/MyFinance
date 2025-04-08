@@ -1,7 +1,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 body{
+    background-color: #121212;
+    color: #FFFFFF;
     font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
     overflow-x: hidden;
 }
 
@@ -86,7 +90,7 @@ body{
     padding: 20px;
     text-align: center;
     border-top: 2px solid #FFFFFF;
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 100%;
 }
@@ -121,3 +125,106 @@ body{
     font-size: 15px;
 }
 
+/* Index.php Style */
+
+body {
+    background-color: #121212;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+main {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+}
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 40px;
+    color: #FFFFFF;
+}
+.hero-images {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+.hero-images img {
+    width: 300px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px #00000088;
+}
+.hero button {
+    padding: 12px 24px;
+    font-size: 18px;
+    background-color: #24D1C2;
+    color: #000000;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.hero button:hover {
+    background-color: #1BA3BD;
+}
+
+.features {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 60px;
+}
+.feature-box {
+    background-color: #1BA3BD;
+    padding: 30px;
+    border-radius: 12px;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+.feature-box:hover {
+    transform: translateY(-5px);
+}
+.feature-box img {
+    width: 80px;
+    margin-bottom: 15px;
+}
+.feature-box h3 {
+    color: #000000;
+    margin-bottom: 10px;
+}
+.feature-box p {
+    color: #000000;
+}
+
+.benefits {
+    margin-top: 60px;
+    padding: 30px;
+    background-color: #1763B2;
+    border-radius: 12px;
+}
+.benefits ul {
+    list-style: none;
+    padding: 0;
+}
+.benefits li {
+    margin: 15px 0;
+    font-size: 18px;
+    padding-left: 20px;
+    position: relative;
+}
+.benefits li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #24D1C2;
+}

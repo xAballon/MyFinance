@@ -3,27 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyFinance - Übersicht</title>
+    <title>MyFinance | Startseite</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <?php include 'header.html'; ?>
     </header>
+
     <main>
-        <section>
-            <h2>Überblick</h2>
-            <p>Verwalten Sie Ihre Finanzen einfach und effizient. Behalten Sie Ihre Einnahmen und Ausgaben stets im Blick.</p>
+        <!-- Hero -->
+        <section class="hero">
+            <h1>MyFinance</h1>
+            <div class="hero-images">
+                <img src="images/Beispielbild.jpg" alt="Bild 1">
+                <img src="images/Beispielbild.jpg" alt="Bild 2">
+            </div>
+            <button onclick="location.href='registrieren.php'">JETZT STARTEN!</button>
         </section>
-        <section>
-            <h2>Funktionen</h2>
-            <p>Unsere Anwendung bietet Ihnen die Möglichkeit, Transaktionen hinzuzufügen, Budgets zu verwalten und Berichte zu erstellen.</p>
+
+        <!-- Features -->
+        <section class="features">
+            <div class="feature-box">
+                <img src="images/Beispielbild.jpg" alt="Feature 1">
+                <h3>Smarte Übersicht</h3>
+                <p>Behalte deine Ausgaben und Einnahmen jederzeit im Blick.</p>
+            </div>
+            <div class="feature-box">
+                <img src="images/Beispielbild.jpg" alt="Feature 2">
+                <h3>Intelligente Analysen</h3>
+                <p>Visualisiere deine Finanzdaten mit übersichtlichen Grafiken.</p>
+            </div>
         </section>
-        <section>
-            <h2>Warum MyFinance?</h2>
-            <p>MyFinance ist benutzerfreundlich, sicher und flexibel. Es hilft Ihnen, Ihre finanziellen Ziele zu erreichen.</p>
+
+        <!-- Vorteile -->
+        <section class="benefits">
+            <ul>
+                <li>Einfache Verwaltung aller Konten</li>
+                <li>Kostenkontrolle mit nur wenigen Klicks</li>
+                <li>Sichere Daten dank moderner Verschlüsselung</li>
+                <li>Mobil & am Desktop nutzbar</li>
+                <li>Kostenlos starten – jederzeit kündbar</li>
+            </ul>
         </section>
     </main>
+
     <footer>
         <?php include 'footer.html'; ?>
     </footer>
