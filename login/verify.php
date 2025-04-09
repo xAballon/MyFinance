@@ -36,9 +36,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['user_id'] = $user['uid'];
             header("Location: index.php");
         } else {
-            echo "Ungültige Anmeldedaten.<br> <a href='login.php'>Zurück zum Login</a>";
+            die("Ungültige Anmeldedaten.<br> <a href='login.php'>Zurück zum Login</a>");
         }
-        $_SESSION['user_id'] = $user['uid'];
+
+        $stmt = $pdo->prepare("SELECT uid FROM user where email = :email");
+        $stmt->execute(['email' => $email]);
+        $id = $stmt->fetch();
+        $_SESSION['id'] = $id;
+        
+        //Konten Erstellen falls nicht vorhanden
+
+        $stmt = $pdo->prepare("SELECT count(kid) FROM konto JOIN user ON konto.ud = user.uid WHERE user.uid = :id");
+        $stmt->execute([':id' => $id]);
+        $user = $stmt->fetchCoulumn();
+
+
+
     } else {
         die("Fehler bei den Anmeldedaten ist Aufgetreten!<br><br><a href='login.php'>Zurück zum Login</a>");
     }
