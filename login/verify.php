@@ -33,25 +33,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         //Passwort verifizieren
         if (password_verify($pass, $user['passwort'])) {
+
+
+            //Startkonten erstellen falls nicht vorhanden
+
+            $id = $user['uid'];
+            $stmt = $pdo->prepare("SELECT count(*) FROM konto  WHERE uid = :id");
+            $stmt->execute([':id' => $id]);
+            $count = $stmt->fetchColumn();
+
+            if (!$count) {
+                $stmt = $pdo->prepare("INSERT INTO konto (knr, bezeichnung, kontostand, uid)
+                                    VALUES
+                                    (000, 'Einnahmen', 0, :uid),
+                                    (999, 'Ausgaben', 0, :uid),
+                                    (100, 'Wohnen', 0, :uid),
+                                    (101, 'Lebensmittel', 0, :uid),
+                                    (102, 'Freizeit', 0, :uid),
+                                    (103, 'Gesundheit', 0, :uid),
+                                    (104, 'Sparen', 0, :uid)");
+                $stmt->execute([':uid' => $id]);
+            }
+
             $_SESSION['user_id'] = $user['uid'];
             header("Location: index.php");
         } else {
             die("Ungültige Anmeldedaten.<br> <a href='login.php'>Zurück zum Login</a>");
         }
-
-        $stmt = $pdo->prepare("SELECT uid FROM user where email = :email");
-        $stmt->execute(['email' => $email]);
-        $id = $stmt->fetch();
-        $_SESSION['id'] = $id;
-        
-        //Konten Erstellen falls nicht vorhanden
-
-        $stmt = $pdo->prepare("SELECT count(kid) FROM konto JOIN user ON konto.ud = user.uid WHERE user.uid = :id");
-        $stmt->execute([':id' => $id]);
-        $user = $stmt->fetchCoulumn();
-
-
-
     } else {
         die("Fehler bei den Anmeldedaten ist Aufgetreten!<br><br><a href='login.php'>Zurück zum Login</a>");
     }
