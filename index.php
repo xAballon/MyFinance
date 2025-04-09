@@ -19,7 +19,7 @@
                 <img src="images/Beispielbild.jpg" alt="Bild 1">
                 <img src="images/Beispielbild.jpg" alt="Bild 2">
             </div>
-            <button onclick="location.href='registrieren.php'">JETZT STARTEN!</button>
+            <button onclick="location.href='login/login.php'">JETZT STARTEN!</button>
         </section>
 
         <!-- Features -->
