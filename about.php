@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Über uns - MyFinance</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>MyFinance | Über Uns</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
-    <?php include 'header.html'; ?>
+    <?php include 'header.php'; ?>
     </header>
 
     <main>
@@ -61,17 +62,17 @@
         <section>
             <h2>Kundenstimmen</h2>
             <p>„<strong>MyFinance</strong> hat meine gesamte Finanzverwaltung revolutioniert. Ich kann jetzt meine Ausgaben im Blick behalten und spare viel einfacher für meine Ziele.“ – <em>Peter Lichtner</em></p>
-            <p>„Dank <strong>MyFinance</strong> habe ich endlich meine Finanzen im Griff! Ich liebe die einfache Bedienbarkeit und die transparente Ausgabenanalyse.“ – <em>Luca Leon Kalt</em></p>
+            <p>„Dank <strong>MyFinance</strong> habe ich endlich meine Finanzen im Griff! Ich liebe die einfache Bedienbarkeit und die transparente Ausgabenanalyse.“ – <em>Franz Unterkreuter</em></p>
         </section>
 
         <section>
             <h2>Kontaktiere uns</h2>
-            <p>Hast du Fragen oder möchtest mehr über <strong>MyFinance</strong> erfahren? Kontaktiere uns einfach über unser <a href="contact.php">Kontaktformular</a> oder sende uns eine E-Mail an: <a href="mailto:info@myfinance.de">info@myfinance.de</a>.</p>
+            <p>Hast du Fragen oder möchtest mehr über <strong>MyFinance</strong> erfahren? Kontaktiere uns einfach über unser <a class="myf-link" href="kontakt.php">Kontaktformular</a> oder sende uns eine E-Mail an: <a class="myf-link" href="mailto:ebner.fabian1@hakspittal.at">ebner.fabian1@hakspittal.at</a> oder <a class="myf-link" href="mailto:kalt.luca@hakspittal.at">kalt.luca@hakspittal.at</a>.</p>
         </section>
     </main>
 
     <footer>
-    <?php include 'footer.html'; ?>
+    <?php include 'footer.php'; ?>
     </footer>
 </body>
 </html>

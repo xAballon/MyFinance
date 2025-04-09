@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             echo "Ungültige Anmeldedaten.<br> <a href='login.php'>Zurück zum Login</a>";
         }
-        $_SESSION['user_id'] = $user['uid'];
+
     } else {
         die("Fehler bei den Anmeldedaten ist Aufgetreten!<br><br><a href='login.php'>Zurück zum Login</a>");
     }

@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyFinance | Startseite</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
-        <?php include 'header.html'; ?>
+        <?php include 'header.php'; ?>
     </header>
 
     <main>
@@ -19,7 +20,6 @@
                 <img src="images/Beispielbild.jpg" alt="Bild 1">
                 <img src="images/Beispielbild.jpg" alt="Bild 2">
             </div>
-            <button onclick="location.href='login/login.php'">JETZT STARTEN!</button>
         </section>
 
         <!-- Features -->
@@ -49,7 +49,7 @@
     </main>
 
     <footer>
-        <?php include 'footer.html'; ?>
+        <?php include 'footer.php'; ?>
     </footer>
 </body>
 </html>
