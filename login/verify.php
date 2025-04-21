@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
 
             $_SESSION['user_id'] = $user['uid'];
-            header("Location: index.php");
+            header("Location: ../index.php");
         } else {
             die("Ungültige Anmeldedaten.<br> <a href='login.php'>Zurück zum Login</a>");
         }

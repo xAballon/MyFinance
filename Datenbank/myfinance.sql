@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 04. Apr 2025 um 16:08
--- Server-Version: 10.4.32-MariaDB
--- PHP-Version: 8.2.12
+-- Erstellungszeit: 21. Apr 2025 um 23:23
+-- Server-Version: 10.4.28-MariaDB
+-- PHP-Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,10 +29,38 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `konto` (
   `kid` int(11) NOT NULL,
+  `knr` int(3) UNSIGNED ZEROFILL NOT NULL,
   `bezeichnung` varchar(150) NOT NULL,
   `kontostand` decimal(10,2) NOT NULL,
   `uid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Daten für Tabelle `konto`
+--
+
+INSERT INTO `konto` (`kid`, `knr`, `bezeichnung`, `kontostand`, `uid`) VALUES
+(1, 000, 'Einnahmen', 0.00, 5),
+(2, 999, 'Ausgaben', 0.00, 5),
+(3, 100, 'Wohnen', 0.00, 5),
+(4, 101, 'Lebensmittel', 0.00, 5),
+(5, 102, 'Freizeit', 0.00, 5),
+(6, 103, 'Gesundheit', 0.00, 5),
+(7, 104, 'Sparen', 0.00, 5),
+(8, 000, 'Einnahmen', 0.00, 6),
+(9, 999, 'Ausgaben', 0.00, 6),
+(10, 100, 'Wohnen', 0.00, 6),
+(11, 101, 'Lebensmittel', 0.00, 6),
+(12, 102, 'Freizeit', 0.00, 6),
+(13, 103, 'Gesundheit', 0.00, 6),
+(14, 104, 'Sparen', 0.00, 6),
+(15, 000, 'Einnahmen', 0.00, 1),
+(16, 999, 'Ausgaben', 0.00, 1),
+(17, 100, 'Wohnen', 0.00, 1),
+(18, 101, 'Lebensmittel', 0.00, 1),
+(19, 102, 'Freizeit', 0.00, 1),
+(20, 103, 'Gesundheit', 0.00, 1),
+(21, 104, 'Sparen', 0.00, 1);
 
 -- --------------------------------------------------------
 
@@ -63,6 +91,18 @@ CREATE TABLE `user` (
   `email` varchar(150) NOT NULL,
   `passwort` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Daten für Tabelle `user`
+--
+
+INSERT INTO `user` (`uid`, `vorname`, `nachname`, `email`, `passwort`) VALUES
+(1, 'fabs', 'Default', 'default@mail.com', '$2y$10$Ce1wAAdXHD9bQj6RYQCDO..z.ySk/l6hMYahPzWGgn6RXsiBrTefO'),
+(2, 'Paul', 'Default', 'default@mail.com', 'Passwort'),
+(3, 'testest', 'Default', 'default2@mail.com', 'Passwort'),
+(4, 'User1', 'Test', '1@mail.at', '$2y$10$TPSGW81zZ/guU8fhWPL.veDYyjANNkDTOFwfMplljlrxh9un6tcHe'),
+(5, 'mail', 'mail', 'mail@mail.at', '$2y$10$bTXMi.VRk7VS1aLoP2RKVOgbYniVIRzCYARSPe04oIGf2aq9.43zW'),
+(6, 'Fabian', 'Ebner', 'ebner.fabian@hakspittal.at', '$2y$10$h4Uw94fK4okpdXMn7noRAeTXUWb9auwsr/1qR1kslLd1crSSS5hku');
 
 --
 -- Indizes der exportierten Tabellen
@@ -98,7 +138,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT für Tabelle `konto`
 --
 ALTER TABLE `konto`
-  MODIFY `kid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `kid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT für Tabelle `transaktionen`
@@ -110,7 +150,7 @@ ALTER TABLE `transaktionen`
 -- AUTO_INCREMENT für Tabelle `user`
 --
 ALTER TABLE `user`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints der exportierten Tabellen
