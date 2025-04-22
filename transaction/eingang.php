@@ -15,10 +15,10 @@ require_once('../misc/dbConnection.php');
 <body>
     <h1>Geldeingang erfassen</h1>
 
-    <form action="POST">
+    <form action="process.php" method="POST">
         <label for="Konto">Konto: </label>
         
-        <select name="konto">
+        <select name="konto" required>
             <?php
             $stmt = $pdo->prepare('SELECT knr, bezeichnung from konto WHERE uid=:id AND knr BETWEEN 100 AND 899');
             $stmt->execute([':id' => $_SESSION['user_id']]);
@@ -33,10 +33,23 @@ require_once('../misc/dbConnection.php');
             
             ?>
         </select>
+
+        <br><br>
+        <label for="betrag">Betrag: </label>
+        <input type="number" id="betrag" name="betrag" placeholder="0,00 €" step="0.01" min="0.01" requiured>
+
+        <br><br>
+        <label for="kommentar">Kommentar: </label>
+        <textarea name="kommentar" rows="3" cols="30"></textarea>
+
+        <input type="hidden" name="type" value="eingang">
+
+        <br><br>
+        <input type="submit" value="Speichern">
     </form>
 
-<option value=""></option>
 
 </body>
+
 
 </html>
