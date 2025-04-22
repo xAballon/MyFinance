@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 21. Apr 2025 um 23:23
--- Server-Version: 10.4.28-MariaDB
--- PHP-Version: 8.2.4
+-- Erstellungszeit: 22. Apr 2025 um 02:50
+-- Server-Version: 10.4.32-MariaDB
+-- PHP-Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -75,8 +75,21 @@ CREATE TABLE `transaktionen` (
   `kommentar` varchar(255) DEFAULT NULL,
   `quelle` int(11) NOT NULL,
   `ziel` int(11) NOT NULL,
+  `zeit` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `uid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Daten für Tabelle `transaktionen`
+--
+
+INSERT INTO `transaktionen` (`tid`, `betrag`, `tnr`, `kommentar`, `quelle`, `ziel`, `zeit`, `uid`) VALUES
+(6, 0.00, 1, 'Lebensmittel Mai 25', 2, 3, '2025-04-22 00:35:41', 5),
+(7, 500.00, 2, 'Geburtstagsgeld - Sparen auf neuen PC', 2, 5, '2025-04-22 00:36:42', 5),
+(8, 900.00, 1, 'Geschenk', 16, 21, '2025-04-22 00:39:09', 1),
+(9, 100.00, 2, 'Kühlschrank-Budget-Zuschuss April 2025', 16, 18, '2025-04-22 00:39:59', 1),
+(10, 200.00, 3, 'Neuer Monitor', 16, 16, '2025-04-22 00:45:29', 1),
+(11, 900.00, 4, 'Hätte auf rot setzen sollen :(', 16, 16, '2025-04-22 00:46:22', 1);
 
 -- --------------------------------------------------------
 
@@ -144,7 +157,7 @@ ALTER TABLE `konto`
 -- AUTO_INCREMENT für Tabelle `transaktionen`
 --
 ALTER TABLE `transaktionen`
-  MODIFY `tid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `tid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT für Tabelle `user`
