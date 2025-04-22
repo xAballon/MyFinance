@@ -11,6 +11,11 @@
 <?php
 require_once('../Misc/dbConnection.php');
 
+if(isset($_SESSION['uid'])){
+    header('LOCATION: logout.php');
+}
+
+
 //Prüfung ob E-Mail bereits regristriert ist
 if (isset($_POST['submit']) && !empty($_POST['email'])) {
 

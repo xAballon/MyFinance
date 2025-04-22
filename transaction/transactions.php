@@ -12,10 +12,10 @@ if ($_GET['type']) {
                 include('eingang.php');
                 break;
             case 'ausgang':
-                //Formular für Ausgang
+                include('ausgang.php');
                 break;
             case 'transfer':
-                //Formular für Transfer
+                include('transfer.php');
                 break;
             default:
                 echo "Ungültiger Formulartyp, oder Typ nicht vorhanden :(";
