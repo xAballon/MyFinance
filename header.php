@@ -14,7 +14,7 @@ $isLoggedIn = isset($_SESSION['user_id']);
     <link rel="stylesheet" href="../style.css">
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-
+    
 </head>
 <body>
     <div class="header">

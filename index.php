@@ -11,7 +11,7 @@
     <header>
         <?php include 'header.php'; ?>
     </header>
-
+    
     <main>
         <!-- Hero -->
         <section class="hero">
