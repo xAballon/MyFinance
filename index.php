@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyFinance | Startseite</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../MyFinance/images/favicon.ico" type="image/x-icon">
 </head>
+
 <body>
+    <?php require_once 'router.php'; ?>
     <header>
         <?php include 'header.php'; ?>
     </header>
-    
+
     <main>
-        <!-- Hero -->
         <section class="hero">
             <h1>MyFinance</h1>
             <div class="hero-images">
@@ -52,4 +54,5 @@
         <?php include 'footer.php'; ?>
     </footer>
 </body>
+
 </html>

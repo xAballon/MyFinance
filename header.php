@@ -12,6 +12,7 @@ $isLoggedIn = isset($_SESSION['user_id']);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyFinance - Header</title>
     <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     

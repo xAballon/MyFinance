@@ -17,7 +17,7 @@
     <div class="error-card">
         <h1>404</h1>
         <p>Entschuldigung! Diese Seite gibt es leider nicht :(</p>
-        <a href="/">Zurück zur Startseite</a>
+        <a href="../MyFinance/index.php">Zurück zur Startseite</a>
     </div>
 
     <footer>
