@@ -4,6 +4,6 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 if (!isset($_SESSION['user_id'])) {
-    header('Location: '. $_SERVER['DOCUMENT_ROOT'].'/login/login.php');
+    header('Location: ../login/login.php');
 }
 ?>
