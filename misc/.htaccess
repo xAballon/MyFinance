@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteBase ../
+
+# Wenn Datei oder Verzeichnis existiert, nichts umschreiben
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Alles andere geht an routing.php
+RewriteRule ^(.*)$ routing.php?url=$1 [QSA,L]
