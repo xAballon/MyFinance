@@ -50,6 +50,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['type']) {
     $stmt->execute([':uid' => $uid, ':konto' => $ziel]);
     $ziel = $stmt->fetchColumn();
 
+    //Transaktion erstellen
     $stmt = $pdo->prepare('INSERT INTO transaktionen (betrag, tnr, kommentar, quelle, ziel, uid)
     VALUES (:betrag, :tnr, :kommentar, :quelle, :ziel, :uid)');
     $stmt->execute([
@@ -62,9 +63,14 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['type']) {
     ]);
 
 
-    // Nach Einfügen einer Transaktion
+    // Kontostand aktualisieren
 $pdo->prepare("UPDATE konto SET kontostand = kontostand + :betrag WHERE kid = :ziel")->execute([':betrag' => $betrag, ':ziel' => $ziel]);
-$pdo->prepare("UPDATE konto SET kontostand = kontostand - :betrag WHERE kid = :quelle")->execute([':betrag' => $betrag, ':quelle' => $quelle]);
+if($_POST['type'] == 'eingang'){
+    $pdo->prepare("UPDATE konto SET kontostand = kontostand + :betrag WHERE kid = :quelle")->execute([':betrag' => $betrag, ':quelle' => $quelle]);
+}else{
+    $pdo->prepare("UPDATE konto SET kontostand = kontostand - :betrag WHERE kid = :quelle")->execute([':betrag' => $betrag, ':quelle' => $quelle]);
+}
+
 
 
 }else{

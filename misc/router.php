@@ -1,21 +1,29 @@
 <?php
- $url = trim(str_replace('/Misc', '', $$_SERVER['REQUEST_URI']), '/');
 
- switch ($url) {
+$url = $_GET['url'] ?? '';
+$parts = explode('/', trim($url, '/'));
+
+switch ($parts[0]) {
     case '':
-        // Weiterleitung zu einer 'about'-Seite oder das Laden der entsprechenden Inhalte
-        include('../index.php');
+        require 'index.php'; // Startseite
         break;
-    
     case 'login':
-        // Weiterleitung zu einer 'contact'-Seite oder das Laden der entsprechenden Inhalte
-        include('../login/login.php');
+        require 'login/login.php';
         break;
-    
+    case 'dashboard':
+        require 'transaction/transactions.php?type=eingang';
+        break;
+    case 'konto':
+        if (isset($parts[1])) {
+            $_GET['id'] = $parts[1]; // Optional, falls du mit id arbeitest
+            require 'konto/detail.php';
+        } else {
+            require 'konto/index.php';
+        }
+        break;
     default:
-        // Standard-Antwort, wenn keine übereinstimmende Route gefunden wurde
-        include('404.php');
-        break;
+        http_response_code(404);
+        echo "404 - Seite nicht gefunden.";
 }
 
 ?>

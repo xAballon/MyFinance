@@ -1,11 +1,9 @@
 RewriteEngine On
+RewriteBase ../
 
-# Base-URL für den Unterordner "Misc"
-RewriteBase /Misc/
+# Wenn Datei oder Verzeichnis existiert, nichts umschreiben
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
 
-# Verhindern, dass echte PHP-Dateien wie login.php und index.php umgeleitet werden
-RewriteCond %{REQUEST_URI} !^/Misc/login\.php$
-RewriteCond %{REQUEST_URI} !^/Misc/index\.php$
-
-# Alle anderen Anfragen an router.php weiterleiten
-RewriteRule ^(.*)$ /Misc/router.php [QSA,L]
+# Alles andere geht an routing.php
+RewriteRule ^(.*)$ routing.php?url=$1 [QSA,L]
