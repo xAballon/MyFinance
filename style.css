@@ -550,4 +550,116 @@ h1 {
   .neutral {
     color: #CCCCCC;
   }
+
+.myf-welcome{
+    font-size: 36px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 2px 2px 3px #24D1C2;
+}
+
+/* Transactions (Eingang, Ausgang, Transfer) CSS */
+.myfinance-container {
+  background-color: #1763B2;
+  color: white;
+  padding: 2rem;
+  max-width: 500px;
+  margin: 3rem auto;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px #000;
+}
+
+.myfinance-container h1 {
+  text-align: center;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.myfinance-form label {
+  display: block;
+  margin: 0.8rem 0 0.2rem;
+  font-weight: bold;
+}
+
+.myfinance-form input[type="number"],
+.myfinance-form textarea,
+.myfinance-form select {
+  width: 100%;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.myfinance-form input[type="submit"] {
+  background-color: #24D1C2;
+  color: black;
+  font-weight: bold;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.myfinance-form input[type="submit"]:hover {
+  background-color: #1BA3BD;
+}
+
+/* profile.php CSS */
+        .profile-container {
+            max-width: 500px;
+            margin: 60px auto;
+            background-color: #1763B2;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+
+        .profile-container h1 {
+            margin-bottom: 20px;
+        }
+
+        .profile-container label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        .profile-container input[type="text"],
+        .profile-container input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        .profile-container input[type="submit"],
+        .profile-container .delete-btn {
+            margin-top: 20px;
+            width: 100%;
+            padding: 12px;
+            background-color: #24D1C2;
+            color: #000;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .profile-container .delete-btn {
+            background-color: #ff4444;
+            margin-top: 10px;
+        }
+
+        .profile-container input[type="submit"]:hover,
+        .profile-container .delete-btn:hover {
+            opacity: 0.9;
+        }
   

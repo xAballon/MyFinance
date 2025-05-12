@@ -1,55 +1,51 @@
 <?php
-
 include('../misc/check_login.php');
 require_once('../misc/dbConnection.php');
 ?>
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eingang</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ausgang</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
 </head>
-
 <body>
-    <h1>Geldeingang erfassen</h1>
+<header>
+    <?php include('../header.php'); ?>
+</header>
 
-    <form action="process.php" method="POST">
-        <label for="Konto">Konto: </label>
-        
-        <select name="konto" required>
-            <?php
-            $stmt = $pdo->prepare('SELECT knr, bezeichnung from konto WHERE uid=:id AND knr BETWEEN 100 AND 899');
-            $stmt->execute([':id' => $_SESSION['user_id']]);
-            $konten = $stmt->fetchAll();
+<div class="myfinance-container">
+  <h1>Geldausgang erfassen</h1>
 
-            echo var_dump($konten);
+  <form class="myfinance-form" action="process.php" method="POST">
+    <label for="konto">Konto</label>
+    <select name="konto" required>
+      <?php
+        $stmt = $pdo->prepare('SELECT knr, bezeichnung FROM konto WHERE uid = :id AND knr BETWEEN 100 AND 899');
+        $stmt->execute([':id' => $_SESSION['user_id']]);
+        foreach($stmt->fetchAll() as $konto){
+          echo "<option value='{$konto['knr']}'>{$konto['bezeichnung']}</option>";
+        }
+      ?>
+    </select>
 
-            foreach($konten as $konto){
-                echo "<option name='konto' value=" . $konto['knr'] . ">" . $konto['bezeichnung'] . "</option>";
-                echo var_dump($konten);
-            }
-            
-            ?>
-        </select>
+    <label for="betrag">Betrag</label>
+    <input type="number" id="betrag" name="betrag" placeholder="0,00 €" step="0.01" min="0.01" required>
 
-        <br><br>
-        <label for="betrag">Betrag: </label>
-        <input type="number" id="betrag" name="betrag" placeholder="0,00 €" step="0.01" min="0.01" requiured>
+    <label for="kommentar">Kommentar</label>
+    <textarea name="kommentar" rows="3"></textarea>
 
-        <br><br>
-        <label for="kommentar">Kommentar: </label>
-        <textarea name="kommentar" rows="3" cols="30"></textarea>
+    <input type="hidden" name="type" value="eingang">
 
-        <input type="hidden" name="type" value="eingang">
+    <input type="submit" value="Speichern">
+  </form>
+</div>
 
-        <br><br>
-        <input type="submit" value="Speichern">
-    </form>
-
+<footer>
+    <?php include('../footer.php'); ?>
+</footer>
 
 </body>
-
-
 </html>

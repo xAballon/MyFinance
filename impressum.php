@@ -8,7 +8,11 @@
     <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <?php include 'header.php'; ?>
+        <header>
+        <?php 
+            include('header.php');
+        ?>
+    </header>
 
     <main>
         <h1>Impressum</h1>
