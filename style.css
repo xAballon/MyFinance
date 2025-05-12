@@ -426,3 +426,33 @@ h1 {
     font-size: 18px;
     margin-bottom: 15px;
 }
+
+.error {
+    background-color: rgba(255, 0, 0, 0.2); /* leicht roter Hintergrund */
+    transition: background-color 0.3s ease;
+  }
+
+  .error input {
+    border-color: red;
+  }
+
+  .verbleibend-null {
+    color: green;
+    font-weight: bold;
+  }
+
+  .error-txt {
+    color: red;
+    font-weight: bold;
+  }
+
+  /* Entfernen der input Pfeile bei Zahlen */
+  input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}

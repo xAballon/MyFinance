@@ -34,14 +34,17 @@ $transactions = $stmt->fetchAll();
 $stmt->execute([':knr' => $knr, ':uid' => $_SESSION['user_id']]);
 $transactions = array_merge($transactions, $stmt->fetchAll());
 */
-
+$stmt = $pdo->prepare('SELECT bezeichnung, knr FROM Konto WHERE knr=:knr AND uid=:uid');
+$stmt->execute([':knr' => $knr, ':uid' => $_SESSION['user_id']]);
+$konto = $stmt->fetch();
+echo "<h1>Konto Nr. " . $konto['knr'] . " - " . $konto['bezeichnung'] . "</h1>";
 
 echo "<table>
   <thead>
     <tr>
       <th> +/-</th>
       <th>Betrag</th>
-      <th>Von Kotno</th>
+      <th>Von Konto</th>
       <th>Auf Konto</th>
       <th>Kommentar</th>
       <th>Transaktion</th>
@@ -56,17 +59,17 @@ usort($transactions, function($a, $b) {
     return strtotime($b['zeit']) - strtotime($a['zeit']);
 });
 
-
 foreach($transactions as $row){
+    /* DEBUG VARDUMP
 var_dump($row);
 echo "<br><br>";
-
+*/
 echo "
 <tr>
 <td>"; if($knr == $row['ziel_knr']){echo "+";}else{echo "-";}; echo "</td>
 <td>" . $row['betrag'] ."</td>
-<td>" . $row['ziel'] . "</td>
 <td>" . $row['quelle'] . "</td>
+<td>" . $row['ziel'] . "</td>
 <td>" . $row['kommentar'] . "</td>
 <td>" . $row['tnr'] . "</td>
 <td>" . $row['zeit'] . "</td>
