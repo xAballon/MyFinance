@@ -71,7 +71,7 @@ if($_POST['type'] == 'eingang'){
     $pdo->prepare("UPDATE konto SET kontostand = kontostand - :betrag WHERE kid = :quelle")->execute([':betrag' => $betrag, ':quelle' => $quelle]);
 }
 
-
+header('Location: ../dashboard.php');
 
 }else{
     echo "Fehler bei der Datenübertragungsmethode<br><br><a href='index.php'>Index</a>";

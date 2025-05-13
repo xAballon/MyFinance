@@ -26,8 +26,6 @@ if ($_GET['type']) {
 } else {
 ?>
 
-
-
 <?php
 }
 ?>

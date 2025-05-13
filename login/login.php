@@ -11,7 +11,7 @@
 
 <?php
 include "../header.php";
-require_once('../Misc/dbConnection.php');
+require_once('../misc/dbConnection.php');
 
 if (isset($_POST['submit']) && !empty($_POST['email'])) {
 
