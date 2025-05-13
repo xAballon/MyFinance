@@ -1,5 +1,5 @@
 <?php
-include('misc/check_login.php');
+include('header.php');
 include('misc/dbConnection.php');
 ?>
 <!DOCTYPE html>
@@ -83,4 +83,5 @@ echo "</tbody></table>";
 
 
 </body>
+<?php include('../footer.php'); ?>
 </html>

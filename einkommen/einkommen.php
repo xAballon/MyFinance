@@ -77,7 +77,7 @@ if (isset($_POST['laden'])) {
                     ->execute([':betrag' => $betrag, ':quelle' => $quelle]);
             } else {
                 // Sonst: Abzug vom Quellkonto
-                $pdo->prepare("UPDATE konto SET kontostand = kontostand - :betrag WHERE kid = :quelle")
+                $pdo->prepare("UPDATE konto SET kontostand = kontostand + :betrag WHERE kid = :quelle")
                     ->execute([':betrag' => $betrag, ':quelle' => $quelle]);
             }
         }
@@ -283,4 +283,5 @@ if (isset($_POST['laden'])) {
 
 </body>
 
+<?php include('../footer.php'); ?>
 </html>

@@ -443,6 +443,9 @@ h1 {
     padding: 2rem;
     flex: 1 1 300px;
     max-width: 400px;
+    overflow-y: auto;
+    max-height: 400px;
+    
   }
 
   .dashboard-section h3 {

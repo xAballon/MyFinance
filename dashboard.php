@@ -48,6 +48,10 @@ require_once('misc/dbConnection.php');
         <a href="../transaction/transactions.php?type=eingang" class="myf-button">➕ Einnahmen</a>
         <a href="../transaction/transactions.php?type=ausgang" class="myf-button">➖ Ausgaben</a>
         <a href="../transaction/transactions.php?type=transfer" class="myf-button">🔄 Umbuchen</a>
+        <a href="../einkommen/einkommen.php" class="myf-button">➕ Einkommen</a>
+        <h3>Sonstiges</h3>
+          <a href="../transaktionenliste.php" class="myf-button">Transaktionsliste</a>
+          <a href="../kontenverwaltung/kontenverwaltung.php" class="myf-button">Kontenverwaltung</a>
       </div>
     </div>
 
