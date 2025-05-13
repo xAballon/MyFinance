@@ -1,13 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyFinance | Kontoansicht</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #24d1c2;
+        }
+
+        .actions {
+            text-align: center;
+        }
+
+        .add-btn {
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>
 <?php
 include('header.php');
 include('misc/dbConnection.php');
 
 
-if(isset($_GET['knr']) && !empty($_GET['knr'])){
+if (isset($_GET['knr']) && !empty($_GET['knr'])) {
 
-$knr = $_GET['knr'];
+    $knr = $_GET['knr'];
 
-$stmt = $pdo->prepare('SELECT 
+    $stmt = $pdo->prepare('SELECT 
     t.betrag AS betrag,
     t.tnr AS tnr,
     t.kommentar AS kommentar,
@@ -28,19 +70,19 @@ WHERE
     (k1.knr = :knr OR k2.knr = :knr)
     AND k1.uid = :uid
     AND k2.uid = :uid;');
-$stmt->execute([':knr' => $knr, ':uid' => $_SESSION['user_id']]);
-$transactions = $stmt->fetchAll();
+    $stmt->execute([':knr' => $knr, ':uid' => $_SESSION['user_id']]);
+    $transactions = $stmt->fetchAll();
 
-/*$stmt = $pdo->prepare('SELECT * FROM transaktionen JOIN konto ON transaktionen.quelle = konto.kid WHERE konto.knr = :knr AND konto.uid = :uid');
+    /*$stmt = $pdo->prepare('SELECT * FROM transaktionen JOIN konto ON transaktionen.quelle = konto.kid WHERE konto.knr = :knr AND konto.uid = :uid');
 $stmt->execute([':knr' => $knr, ':uid' => $_SESSION['user_id']]);
 $transactions = array_merge($transactions, $stmt->fetchAll());
 */
-$stmt = $pdo->prepare('SELECT bezeichnung, knr FROM Konto WHERE knr=:knr AND uid=:uid');
-$stmt->execute([':knr' => $knr, ':uid' => $_SESSION['user_id']]);
-$konto = $stmt->fetch();
-echo "<h1>Konto Nr. " . $konto['knr'] . " - " . $konto['bezeichnung'] . "</h1>";
+    $stmt = $pdo->prepare('SELECT bezeichnung, knr FROM Konto WHERE knr=:knr AND uid=:uid');
+    $stmt->execute([':knr' => $knr, ':uid' => $_SESSION['user_id']]);
+    $konto = $stmt->fetch();
+    echo "<h1>Konto Nr. " . $konto['knr'] . " - " . $konto['bezeichnung'] . "</h1>";
 
-echo "<table>
+    echo "<table>
   <thead>
     <tr>
       <th> +/-</th>
@@ -55,20 +97,26 @@ echo "<table>
   <tbody>
 ";
 
-//nach aktuellstem sortieren
-usort($transactions, function($a, $b) {
-    return strtotime($b['zeit']) - strtotime($a['zeit']);
-});
+    //nach aktuellstem sortieren
+    usort($transactions, function ($a, $b) {
+        return strtotime($b['zeit']) - strtotime($a['zeit']);
+    });
 
-foreach($transactions as $row){
-    /* DEBUG VARDUMP
+    foreach ($transactions as $row) {
+        /* DEBUG VARDUMP
 var_dump($row);
 echo "<br><br>";
 */
-echo "
+        echo "
 <tr>
-<td>"; if($knr == $row['ziel_knr']){echo "+";}else{echo "-";}; echo "</td>
-<td>" . $row['betrag'] ."</td>
+<td>";
+        if ($knr == $row['ziel_knr']) {
+            echo "+";
+        } else {
+            echo "-";
+        };
+        echo "</td>
+<td>" . $row['betrag'] . "</td>
 <td>" . $row['quelle'] . "</td>
 <td>" . $row['ziel'] . "</td>
 <td>" . $row['kommentar'] . "</td>
@@ -76,10 +124,9 @@ echo "
 <td>" . $row['zeit'] . "</td>
 <tr>
 ";
-}
-echo "</tbody></table>";
-
-}else{
+    }
+    echo "</tbody></table>";
+} else {
     die('Kein Konto eingegeben');
 }
 include('footer.php');

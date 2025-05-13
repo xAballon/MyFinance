@@ -1,6 +1,6 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-body{
+
+body {
     background-color: #121212;
     color: #FFFFFF;
     font-family: 'Roboto', sans-serif;
@@ -98,27 +98,32 @@ a.myf-link:hover {
 .spacer {
     height: 90px;
 }
+
 .logo-container {
     display: flex;
     align-items: center;
     flex-grow: 1;
 }
+
 .logo-text {
     font-size: 30px;
     font-weight: bold;
     color: #FFFFFF;
 }
+
 .logo img {
     width: 70px;
     height: auto;
     margin-right: 30px;
 }
+
 .nav-links {
     display: flex;
     gap: 40px;
     flex-grow: 2;
     justify-content: center;
 }
+
 .nav-links a {
     text-decoration: none;
     color: #FFFFFF;
@@ -128,10 +133,12 @@ a.myf-link:hover {
     font-weight: bold;
     font-size: 18px;
 }
+
 .nav-links a:hover {
     background-color: #1BA3BD;
     color: #000000;
 }
+
 .profile-icon {
     width: 50px;
     height: 50px;
@@ -147,7 +154,8 @@ a.myf-link:hover {
     flex-shrink: 0;
     background: #1ba2bd3b;
 }
-.profile-icon:hover{
+
+.profile-icon:hover {
     background: #1BA3BD;
 }
 
@@ -163,6 +171,7 @@ a.myf-link:hover {
     bottom: 0;
     width: 100%;
 }
+
 .footer-content {
     display: flex;
     justify-content: space-between;
@@ -170,25 +179,30 @@ a.myf-link:hover {
     max-width: 1200px;
     margin: 0 auto;
 }
+
 .footer-logo img {
     width: 50px;
     height: auto;
     margin-right: 50px;
     margin-top: 10px;
 }
+
 .footer-links {
     display: flex;
     gap: 40px;
 }
+
 .footer-links a {
     text-decoration: none;
     color: #FFFFFF;
     font-weight: bold;
     font-size: 16px;
 }
+
 .footer-links a:hover {
     color: #24D1C2;
 }
+
 .footer-text {
     margin-top: 10px;
     font-size: 15px;
@@ -205,11 +219,13 @@ main {
     text-align: center;
     padding: 60px 20px;
 }
+
 .hero h1 {
     font-size: 48px;
     margin-bottom: 40px;
     color: #FFFFFF;
 }
+
 .hero-images {
     display: flex;
     justify-content: center;
@@ -217,11 +233,13 @@ main {
     flex-wrap: wrap;
     margin-bottom: 40px;
 }
+
 .hero-images img {
     width: 300px;
     border-radius: 12px;
     box-shadow: 0 0 10px #00000088;
 }
+
 .hero button {
     padding: 12px 24px;
     font-size: 18px;
@@ -232,6 +250,7 @@ main {
     font-weight: bold;
     cursor: pointer;
 }
+
 .hero button:hover {
     background-color: #1BA3BD;
 }
@@ -243,6 +262,7 @@ main {
     flex-wrap: wrap;
     margin-top: 60px;
 }
+
 .feature-box {
     background-color: #1BA3BD;
     padding: 30px;
@@ -251,17 +271,21 @@ main {
     text-align: center;
     transition: transform 0.3s;
 }
+
 .feature-box:hover {
     transform: translateY(-5px);
 }
+
 .feature-box img {
     width: 80px;
     margin-bottom: 15px;
 }
+
 .feature-box h3 {
     color: #000000;
     margin-bottom: 10px;
 }
+
 .feature-box p {
     color: #000000;
 }
@@ -272,16 +296,19 @@ main {
     background-color: #1763B2;
     border-radius: 12px;
 }
+
 .benefits ul {
     list-style: none;
     padding: 0;
 }
+
 .benefits li {
     margin: 15px 0;
     font-size: 18px;
     padding-left: 20px;
     position: relative;
 }
+
 .benefits li::before {
     content: "✔";
     position: absolute;
@@ -296,12 +323,14 @@ main {
     padding: 40px 20px;
     animation: fadeIn 1s ease-out;
 }
+
 h1 {
     font-size: 36px;
     color: #24D1C2;
     margin-bottom: 20px;
     text-align: center;
 }
+
 .impressum-box {
     background-color: #1BA3BD;
     padding: 30px;
@@ -309,19 +338,34 @@ h1 {
     box-shadow: 0 0 15px #00000055;
     animation: slideUp 0.8s ease-out;
 }
+
 .impressum-box p {
     font-size: 18px;
     line-height: 1.6;
     color: #000000;
     margin: 15px 0;
 }
+
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
+
 @keyframes slideUp {
-    from { transform: translateY(30px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 /*login.php Style*/
@@ -434,9 +478,9 @@ h1 {
     gap: 2rem;
     justify-content: center;
     padding: 2rem;
-  }
+}
 
-  .dashboard-section {
+.dashboard-section {
     background-color: #1763B2;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
@@ -445,21 +489,21 @@ h1 {
     max-width: 400px;
     overflow-y: auto;
     max-height: 400px;
-    
-  }
 
-  .dashboard-section h3 {
+}
+
+.dashboard-section h3 {
     margin-bottom: 1rem;
     color: #FFFFFF;
-  }
+}
 
-  .button-grid {
+.button-grid {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-  }
+}
 
-  .myf-button {
+.myf-button {
     background-color: #24D1C2;
     color: #000000;
     font-weight: bold;
@@ -471,41 +515,42 @@ h1 {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     text-align: center;
     text-decoration: none;
-  }
+}
 
-  .myf-button:hover {
+.myf-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(36, 209, 194, 0.4);
-  }
+}
 
-  .kontenliste {
+.kontenliste {
     max-height: 300px;
     overflow-y: auto;
     background: #1BA3BD;
     border-radius: 10px;
     padding: 1rem;
-  }
+}
 
-  .kontenliste table {
+.kontenliste table {
     width: 100%;
     color: #FFFFFF;
     border-collapse: collapse;
-  }
+}
 
-  .kontenliste th, .kontenliste td {
+.kontenliste th,
+.kontenliste td {
     padding: 0.5rem;
     border-bottom: 1px solid #ffffff33;
-  }
+}
 
-  .kontenliste tr:hover {
+.kontenliste tr:hover {
     background-color: #24D1C2;
     cursor: pointer;
-  }
+}
 
-  .chart-wrapper {
+.chart-wrapper {
     max-width: 300px;
     margin: 0 auto;
-  }
+}
 
 /* Kontenliste.php CSS */
 .konto-container {
@@ -513,9 +558,9 @@ h1 {
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
-  }
+}
 
-  .konto-card {
+.konto-card {
     background-color: #1763B2;
     border-radius: 10px;
     padding: 20px;
@@ -525,36 +570,36 @@ h1 {
     cursor: pointer;
     text-decoration: none;
     color: white;
-  }
+}
 
-  .konto-card:hover {
+.konto-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
-  }
+}
 
-  .konto-name {
+.konto-name {
     font-size: 1.2rem;
     margin-bottom: 10px;
-  }
+}
 
-  .kontostand {
+.kontostand {
     font-size: 1.4rem;
     font-weight: bold;
-  }
+}
 
-  .positive {
+.positive {
     color: #24D1C2;
-  }
+}
 
-  .negative {
+.negative {
     color: #FF4444;
-  }
+}
 
-  .neutral {
+.neutral {
     color: #CCCCCC;
-  }
+}
 
-.myf-welcome{
+.myf-welcome {
     font-size: 36px;
     color: #ffffff;
     margin-bottom: 20px;
@@ -564,134 +609,202 @@ h1 {
 
 /* Transactions (Eingang, Ausgang, Transfer) CSS */
 .myfinance-container {
-  background-color: #1763B2;
-  color: white;
-  padding: 2rem;
-  max-width: 500px;
-  margin: 3rem auto;
-  border-radius: 1rem;
-  box-shadow: 0 0 10px #000;
+    background-color: #1763B2;
+    color: white;
+    padding: 2rem;
+    max-width: 500px;
+    margin: 3rem auto;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px #000;
 }
 
 .myfinance-container h1 {
-  text-align: center;
-  color: white;
-  margin-bottom: 1.5rem;
+    text-align: center;
+    color: white;
+    margin-bottom: 1.5rem;
 }
 
 .myfinance-form label {
-  display: block;
-  margin: 0.8rem 0 0.2rem;
-  font-weight: bold;
+    display: block;
+    margin: 0.8rem 0 0.2rem;
+    font-weight: bold;
 }
 
 .myfinance-form input[type="number"],
 .myfinance-form textarea,
 .myfinance-form select {
-  width: 100%;
-  padding: 0.6rem;
-  border: none;
-  border-radius: 0.5rem;
-  margin-bottom: 1rem;
-  font-size: 1rem;
+    width: 100%;
+    padding: 0.6rem;
+    border: none;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
 }
 
 .myfinance-form input[type="submit"] {
-  background-color: #24D1C2;
-  color: black;
-  font-weight: bold;
-  border: none;
-  padding: 0.8rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  width: 100%;
-  transition: background-color 0.3s;
+    background-color: #24D1C2;
+    color: black;
+    font-weight: bold;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
 }
 
 .myfinance-form input[type="submit"]:hover {
-  background-color: #1BA3BD;
+    background-color: #1BA3BD;
 }
 
 /* profile.php CSS */
-        .profile-container {
-            max-width: 500px;
-            margin: 60px auto;
-            background-color: #1763B2;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            color: white;
-        }
+.profile-container {
+    max-width: 500px;
+    margin: 60px auto;
+    background-color: #1763B2;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    color: white;
+}
 
-        .profile-container h1 {
-            margin-bottom: 20px;
-        }
+.profile-container h1 {
+    margin-bottom: 20px;
+}
 
-        .profile-container label {
-            display: block;
-            margin-top: 10px;
-        }
+.profile-container label {
+    display: block;
+    margin-top: 10px;
+}
 
-        .profile-container input[type="text"],
-        .profile-container input[type="email"] {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: none;
-            border-radius: 5px;
-            background-color: #ffffff;
-            color: #000000;
-        }
+.profile-container input[type="text"],
+.profile-container input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #000000;
+}
 
-        .profile-container input[type="submit"],
-        .profile-container .delete-btn {
-            margin-top: 20px;
-            width: 100%;
-            padding: 12px;
-            background-color: #24D1C2;
-            color: #000;
-            border: none;
-            border-radius: 6px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+.profile-container input[type="submit"],
+.profile-container .delete-btn {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background-color: #24D1C2;
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
 
-        .profile-container .delete-btn {
-            background-color: #ff4444;
-            margin-top: 10px;
-        }
+.profile-container .delete-btn {
+    background-color: #ff4444;
+    margin-top: 10px;
+}
 
-        .profile-container input[type="submit"]:hover,
-        .profile-container .delete-btn:hover {
-            opacity: 0.9;
-        }
-  
+.profile-container input[type="submit"]:hover,
+.profile-container .delete-btn:hover {
+    opacity: 0.9;
+}
+
 .error {
-    background-color: rgba(255, 0, 0, 0.2); /* leicht roter Hintergrund */
+    background-color: rgba(255, 0, 0, 0.2);
+    /* leicht roter Hintergrund */
     transition: background-color 0.3s ease;
-  }
+}
 
-  .error input {
+.error input {
     border-color: red;
-  }
+}
 
-  .verbleibend-null {
+.verbleibend-null {
     color: green;
     font-weight: bold;
-  }
+}
 
-  .error-txt {
+.error-txt {
     color: red;
     font-weight: bold;
-  }
+}
 
-  /* Entfernen der input Pfeile bei Zahlen */
-  input[type=number]::-webkit-inner-spin-button,
+/* Entfernen der input Pfeile bei Zahlen */
+input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 input[type=number] {
-  -moz-appearance: textfield;
+    -moz-appearance: textfield;
 }
+
+/* hinzufuegen.php CSS */
+.konto-form-container {
+    max-width: 500px;
+    margin: 60px auto;
+    background-color: #1763B2;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.konto-form-container h2 {
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.konto-form-container label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: white;
+}
+
+.konto-form-container input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.konto-form-container button {
+    width: 100%;
+    background-color: #1BA3BD;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.konto-form-container button:hover {
+    background-color: #11afce;
+}
+
+.error-message {
+    color: red;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* Einkommen.php CSS */

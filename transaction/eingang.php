@@ -7,7 +7,7 @@ require_once('../misc/dbConnection.php');
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ausgang</title>
+  <title>MyFinance | Eingang erfassen</title>
   <link rel="stylesheet" href="../style.css">
   <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
 </head>
@@ -17,7 +17,7 @@ require_once('../misc/dbConnection.php');
 </header>
 
 <div class="myfinance-container">
-  <h1>Geldausgang erfassen</h1>
+  <h1>Geldeingang erfassen</h1>
 
   <form class="myfinance-form" action="process.php" method="POST">
     <label for="konto">Konto</label>

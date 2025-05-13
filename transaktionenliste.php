@@ -1,35 +1,66 @@
 <?php
-include('header.php');
 include('misc/dbConnection.php');
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontenübersicht</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyFinance | Kontenübersicht</title>
+      <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
 </head>
+<style>
+  table {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 20px auto;
+  }
+
+  th,
+  td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #24d1c2;
+  }
+
+  .actions {
+    text-align: center;
+  }
+
+  .add-btn {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+  }
+</style>
+
 <body>
-    
-<h1>Transaktionen</h1>
+  <header>
+    <?php include('header.php'); ?>
+  </header>
 
-<table>
-    
-  <thead>
-    <tr>
-      <th>Nummer</th>
-      <th>Betrag</th>
-      <th>Quellkonto</th>
-      <th>Zielkonto</th>
-      <th>Kommentar</th>
-      <th>Zeit</th>
+  <h1>Transaktionen</h1>
 
-      <td></td>
-    </tr>
-  </thead>
-  <tbody>
-    <?php
-$stmt = $pdo->prepare('SELECT 
+  <table>
+
+    <thead>
+      <tr>
+        <th>Nummer</th>
+        <th>Betrag</th>
+        <th>Quellkonto</th>
+        <th>Zielkonto</th>
+        <th>Kommentar</th>
+        <th>Zeit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php
+      $stmt = $pdo->prepare('SELECT 
 t.betrag AS betrag,
 t.tnr AS tnr,
 t.kommentar AS kommentar,
@@ -49,23 +80,24 @@ JOIN
 konto k2 ON t.quelle = k2.kid
 WHERE 
 t.uid = :uid;');
-$stmt->execute([':uid' => $_SESSION['user_id']]);
-$transactions = $stmt->fetchAll();$stmt->execute([':uid' => $_SESSION['user_id']]);
-$konten = $stmt->fetchAll();
+      $stmt->execute([':uid' => $_SESSION['user_id']]);
+      $transactions = $stmt->fetchAll();
+      $stmt->execute([':uid' => $_SESSION['user_id']]);
+      $konten = $stmt->fetchAll();
 
-//nach aktuellstem sortieren
-usort($transactions, function ($a, $b) {
-    return $b['tnr'] <=> $a['tnr']; // Aufsteigend sortieren
-});
+      //nach aktuellstem sortieren
+      usort($transactions, function ($a, $b) {
+        return $b['tnr'] <=> $a['tnr']; // Aufsteigend sortieren
+      });
 
-foreach($transactions as $row){
-    /* DEBUG VARDUMP
+      foreach ($transactions as $row) {
+        /* DEBUG VARDUMP
 var_dump($row);
 echo "<br><br>";
 */
-echo "
+        echo "
 <tr>
-<td>" . $row['tnr'] ."</td>
+<td>" . $row['tnr'] . "</td>
 <td>" . $row['betrag'] . "</td>
 <td>" . $row['ziel'] . "</td>
 <td>" . $row['quelle'] . "</td>
@@ -73,15 +105,16 @@ echo "
 <td>" . $row['zeit'] . "</td>
 <tr>
 ";
-}
-echo "</tbody></table>";
+      }
+      echo "</tbody></table>";
 
 
-?>
+      ?>
     </tbody>
-</table>
+  </table>
 
 
 </body>
 <?php include('footer.php'); ?>
+
 </html>

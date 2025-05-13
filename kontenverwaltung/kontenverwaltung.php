@@ -1,5 +1,5 @@
 <?php
-include('../header.php');
+include('../misc/check_login.php');
 include('../misc/dbConnection.php');
 
 // Konten zwischen 100 und 899 laden
@@ -12,7 +12,8 @@ $konten = $stmt->fetchAll();
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Kontenverwaltung</title>
+    <title>MyFinance | Kontenverwaltung</title>
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
     <style>
         table { border-collapse: collapse; width: 80%; margin: 20px auto; }
         th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
@@ -22,6 +23,9 @@ $konten = $stmt->fetchAll();
     </style>
 </head>
 <body>
+    <header>
+        <?php include('../header.php'); ?>
+    </header>
 
 <h2 style="text-align:center;">Kontenverwaltung</h2>
 
