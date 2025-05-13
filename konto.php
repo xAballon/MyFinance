@@ -1,6 +1,7 @@
 <?php
-include('misc/check_login.php');
+include('header.php');
 include('misc/dbConnection.php');
+
 
 if(isset($_GET['knr']) && !empty($_GET['knr'])){
 
@@ -81,5 +82,5 @@ echo "</tbody></table>";
 }else{
     die('Kein Konto eingegeben');
 }
-
+include('footer.php');
 ?>
