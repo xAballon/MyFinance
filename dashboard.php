@@ -1,4 +1,4 @@
-<?php 
+<?php
 include('misc/check_login.php');
 require_once('misc/dbConnection.php');
 ?>
@@ -23,12 +23,12 @@ require_once('misc/dbConnection.php');
 
   <!-- Willkommen + [Name] -->
   <?php
-    $stmt = $pdo->prepare('SELECT vorname, nachname FROM user WHERE uid = :uid');
-    $stmt->execute([':uid' => $_SESSION['user_id']]);
-    $user = $stmt->fetch();
+  $stmt = $pdo->prepare('SELECT vorname, nachname FROM user WHERE uid = :uid');
+  $stmt->execute([':uid' => $_SESSION['user_id']]);
+  $user = $stmt->fetch();
   ?>
   <?php if ($user): ?>
-      <h2 class="myf-welcome">Guten Tag, <?= htmlspecialchars($user['vorname']) ?> <?= htmlspecialchars($user['nachname']) ?>!</h2>
+    <h2 class="myf-welcome">Guten Tag, <?= htmlspecialchars($user['vorname']) ?> <?= htmlspecialchars($user['nachname']) ?>!</h2>
   <?php endif; ?>
 
   <div class="dashboard-container">
@@ -36,10 +36,11 @@ require_once('misc/dbConnection.php');
     <!-- Budget Statistik -->
     <div class="dashboard-section">
       <h3>Budget Statistik</h3>
-      <div class="chart-wrapper">
-        <canvas id="balkendiagramm"></canvas>
+      <div class="chart-wrapper" style="max-width: 800px; margin: auto;">
+        <canvas id="balkendiagramm" width="800" height="1000"></canvas>
       </div>
     </div>
+
 
     <!-- Transaktionsbuttons -->
     <div class="dashboard-section">
@@ -50,25 +51,22 @@ require_once('misc/dbConnection.php');
         <a href="../transaction/transactions.php?type=transfer" class="myf-button">🔄 Umbuchen</a>
         <a href="../einkommen/einkommen.php" class="myf-button">➕ Einkommen</a>
         <h3>Sonstiges</h3>
-          <a href="../transaktionenliste.php" class="myf-button">Transaktionsliste</a>
-          <a href="../kontenverwaltung/kontenverwaltung.php" class="myf-button">Kontenverwaltung</a>
+        <a href="../transaktionenliste.php" class="myf-button">Transaktionsliste</a>
+        <a href="../kontenverwaltung/kontenverwaltung.php" class="myf-button">Kontenverwaltung</a>
       </div>
     </div>
 
     <!-- Kontenliste -->
     <div class="dashboard-section">
       <h3>Kontenübersicht</h3>
-      <div class="kontenliste">
         <?php include('kontenliste.php'); ?>
-      </div>
     </div>
 
   </div>
 
-<script>
-
+  <script>
     <?php
-      // Einnahmen (Kontonummer 000) holen
+    // Einnahmen (Kontonummer 000) holen
     $stmt = $pdo->prepare('SELECT knr, kontostand FROM Konto WHERE uid = :uid AND knr = "000"');
     $stmt->execute([':uid' => $_SESSION['user_id']]);
     $einnahmen = $stmt->fetchAll();
@@ -77,7 +75,7 @@ require_once('misc/dbConnection.php');
       $betrag_einnahmen = (float) $row['kontostand'];
     endforeach;
 
-      // Ausgaben (Kontonummer 999) holen
+    // Ausgaben (Kontonummer 999) holen
     $stmt = $pdo->prepare('SELECT knr, kontostand FROM Konto WHERE uid = :uid AND knr = "999"');
     $stmt->execute([':uid' => $_SESSION['user_id']]);
     $ausgaben = $stmt->fetchAll();
@@ -92,55 +90,55 @@ require_once('misc/dbConnection.php');
 
     const ctx = document.getElementById('balkendiagramm').getContext('2d');
     const chart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Einnahmen', 'Ausgaben'],
-            datasets: [{
-                label: 'Beträge in €',
-                data: [einnahmen, ausgaben],
-                backgroundColor: [
-                    '#24D1C2', // Türkis für Einnahmen
-                    '#FF4444'  // Rot für Ausgaben
-                ],
-                borderColor: '#ffff',
-                borderWidth: 1,
-                borderRadius: 4
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                title: {
-                    display: true,
-                    color: '#ffff',
-                    font: {
-                        size: 20,
-                        weight: 'bold'
-                    }
-                },
-                legend: {
-                    display: false
-                }
-            },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        callback: function(value) {
-                            return value + ' €';
-                        },
-                        color: '#ffff'
-                    }
-                },
-                x: {
-                    ticks: {
-                        color: '#ffff'
-                    }
-                }
+      type: 'bar',
+      data: {
+        labels: ['Einnahmen', 'Ausgaben'],
+        datasets: [{
+          label: 'Beträge in €',
+          data: [einnahmen, ausgaben],
+          backgroundColor: [
+            '#24D1C2', // Türkis für Einnahmen
+            '#FF4444' // Rot für Ausgaben
+          ],
+          borderColor: '#fff',
+          borderWidth: 3,
+          borderRadius: 4
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          title: {
+            display: true,
+            color: '#ffff',
+            font: {
+              size: 20,
+              weight: 'bold'
             }
+          },
+          legend: {
+            display: false
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              callback: function(value) {
+                return value + ' €';
+              },
+              color: '#ffff'
+            }
+          },
+          x: {
+            ticks: {
+              color: '#ffff'
+            }
+          }
         }
+      }
     });
-</script>
+  </script>
 
   <footer>
     <?php include('footer.php'); ?>

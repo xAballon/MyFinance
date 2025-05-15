@@ -19,8 +19,8 @@
         <section class="hero">
             <h1>MyFinance</h1>
             <div class="hero-images">
-                <img src="images/Beispielbild.jpg" alt="Bild 1">
-                <img src="images/Beispielbild.jpg" alt="Bild 2">
+                <img src="images/finance_hero.jpg" alt="Bild 1">
+                <img src="images/Finanzen-Foto.jpg" alt="Bild 2">
             </div>
         </section>
 
